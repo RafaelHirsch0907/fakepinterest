@@ -1,6 +1,6 @@
 # CRIAR OS FORMULARIOS DO SITE
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from fakepinterest.models import User
 
@@ -20,3 +20,7 @@ class FormCreateLogin(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             return ValidationError("Email already registered, login to continue")
+        
+class FormPhoto(FlaskForm):
+    photo = FileField("Photo", validators=[DataRequired()])
+    submitButton = SubmitField("Upload Photo")
