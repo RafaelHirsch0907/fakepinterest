@@ -1,0 +1,12 @@
+{%extends "homepage.html"%}
+
+{%block body%}
+{%include "navbar.html"%}
+
+<h1>Feed Principal</h1>
+
+{%for photo in photos%}
+    <img src="{{url_for('static', filename='photos_posts/{}'.format(photo.image))}}" alt="">
+{%endfor%}
+
+{%endblock%}

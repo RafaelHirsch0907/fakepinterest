@@ -6,6 +6,7 @@ Perfil - {{user}}
 
 {% block body %}
 <body>
+    {%include "navbar.html"%}
     <h1>Perfil de {{user.username}}</h1>
     {%if form%}
     <form method="POST" enctype="multipart/form-data">
